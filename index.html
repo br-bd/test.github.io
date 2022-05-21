@@ -1,769 +1,244 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<title>电影-星空影院</title>   
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-<meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<meta name="applicable-device" content="pc,mobile"/>
-<link rel="alternate" type="application/rss+xml" title="XML 1.0" href="http://www.chinalift.net/rss/baidu.xml"/>
-<link rel="shortcut icon" href="statics/img/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" href="statics/font/iconfont.css" type="text/css" />
-<link rel="stylesheet" href="statics/css/stui_block.css" type="text/css" />
-<link rel="stylesheet" href="statics/css/stui_block_color.css" type="text/css" />
-<link rel="stylesheet" href="statics/css/stui_default.css" type="text/css" />
-<script type="text/javascript" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-5-y/jquery/3.3.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-5-y/clipboard.js/1.5.5/clipboard.min.js"></script>
-<script type="text/javascript" src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-5-y/headroom/0.9.4/headroom.min.js"></script>
-<script type="text/javascript" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-5-y/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-<script type="text/javascript" src="https://lib.sinaapp.com/js/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-5-y/qrcodejs/1.0.0/qrcode.min.js"></script>
-<script type="text/javascript" src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-5-y/jquery_lazyload/1.9.3/jquery.lazyload.min.js"></script>
-<script type="text/javascript" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-5-y/flickity/2.0.10/flickity.pkgd.min.js"></script>
-<script type="text/javascript" src="statics/js/stui_block.js "></script>
-<script type="text/javascript" src="statics/js/home.js"></script>
-<script>var maccms={"path":"","mid":"1","url":"www.chinalift.net","wapurl":"www.chinalift.net","mob_status":"2"};</script>
-<!--[if lt IE 9]>
-<script src="https://lf9-cdn-tos.bytecdntp.com/cdn/expire-5-y/html5shiv/3.7.2/html5shiv-printshiv.min.js"></script>
-<script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-5-y/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
+	<script type="text/javascript" src="https://lf6-cdn-tos.bytecdntp.com/cdn/expire-5-y/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/vconsole@latest/dist/vconsole.min.js"></script>
+	<script type="text/javascript" src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
 </head>
+
 <body>
-<header class="sonijih stui-header__top clearfix" id="header-top">
-  <div class="xixisougou container">
-    <div class="row">
-      <div class="biighdh stui-header_bd clearfix">
-        <div class="MHYtugh stui-header__logo"> <a class="logo" href="/"></a> </div>
-        <div class="uyyhGTRF stui-header__side">
-          <ul class="GHGTwr stui-header__user">
-                        <li> <a href="javascript:;"><i class="KUYRbg icon iconfont icon-clock"></i></a>
-              <div class="dropdown history">
-                <h5 class="margin-0 text-muted"><a class="3rtetererye historyclean text-muted pull-right" href="">清空</a>播放记录</h5>
-                <ul class="dgrthrthrjr clearfix" id="stui_history">
-                </ul>
-              </div>
-            </li>
-                      </ul>
-          <script type="text/javascript" src="statics/js/jquery.autocomplete.js"></script>
-          <div class="UJYTrdbfg stui-header__search">
-            <form id="search" name="search" method="get" action="/x/-------------.html" onSubmit="return qrsearch();">
-              <input type="text" name="wd" class="mac_wd form-control" value="" placeholder="请输入片名..." autocomplete="off"/>
-              <button class="submit" id="searchbutton" type="submit"><i class="icon iconfont icon-search"></i></button>
-            </form>
-          </div>
-        </div>
-        <ul class="KIUYTer stui-header__menu type-slide">
-          <li ><a href="/">首页</a></li>
-                    <li ><a href="/f/dianying.html">电影</a></li>
-                    <li ><a href="/f/dianshiju.html">电视剧</a></li>
-                    <li ><a href="/f/zongyi.html">综艺</a></li>
-                    <li ><a href="/f/dongman.html">动漫</a></li>
-                    <li ><a href="/f/guochanju.html">国产剧</a></li>
-          <li ><a href="/f/rihanju.html">日韩剧</a></li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</header>
-<script type="text/javascript">
-	$(".stui-header__user li,.stui-header__menu li").click(function(){
-		$(this).find(".dropdown").toggle();
-		$(".MacPlayer").toggle();
-	});
-	if(stui.browser.useragent.mobile){
-		$(".stui-header__logo .logo").css("background","url(statics/img/logo.png) no-repeat");		
-	}else{
-		$(".stui-header__logo .logo").css("background","url(statics/img/logo.png) no-repeat");
-	}
-</script>
-
-
-<div align="left">
-	<div>
-		<span>RemotePeer：</span>
-		<input type="text" id="remotePeerId" value="ccctttrrrzzz-0">
-		<span style="background-color:red; cursor:pointer;" onclick="launchPeer($('#remotePeerId').val())">Launch</span>
+	
+	<div align="left">
+		<div>
+			<span>RemotePeer：</span>
+			<input type="text" id="remotePeerId" value="ccctttrrrzzz-0">
+			<span style="background-color:red; cursor:pointer;" onclick="launchPeer($('#remotePeerId').val())">Launch</span>
+		</div>
+		
+		<div>私信：<b id="msg" style="color:green"></b></div>
 	</div>
 	
-	<div>私信：<b id="msg" style="color:green"></b></div>
-</div>
-
-<div class="srewtery container">
-  <div class="row">
-    <div class="tryrtur65 stui-pannel stui-pannel-bg clearfix">
-      <div class="et4et6e5 stui-pannel-box">
-        <!-- 筛选 -->
-        <div class="rtytyu stui-pannel_hd">           <ul class="ryey74646 stui-screen__list type-slide bottom-line-dot clearfix">
-            <li> <span class="rt464 text-muted">按类型</span> </li>
-             <li class="active" ><a href="/vod/type.html">全部</a>
-            </li>
-             <li><a href="/f/juqingpian.html" class="text-muted">剧情片</a>
-            </li>
-             <li><a href="/f/dongzhuopian.html" class="text-muted">动作片</a>
-            </li>
-             <li><a href="/f/kehuanpian.html" class="text-muted">科幻片</a>
-            </li>
-             <li><a href="/f/aiqingpian.html" class="text-muted">爱情片</a>
-            </li>
-             <li><a href="/f/xijupian.html" class="text-muted">喜剧片</a>
-            </li>
-             <li><a href="/f/zhanzhengpian.html" class="text-muted">战争片</a>
-            </li>
-             <li><a href="/f/kongbupian.html" class="text-muted">恐怖片</a>
-            </li>
-             <li><a href="/f/fanzhuipian.html" class="text-muted">犯罪片</a>
-            </li>
-             <li><a href="/f/xuanyipian.html" class="text-muted">悬疑片</a>
-            </li>
-             <li><a href="/f/donghuapian.html" class="text-muted">动画片</a>
-            </li>
-             <li><a href="/f/jinglapian.html" class="text-muted">惊悚片</a>
-            </li>
-             <li><a href="/f/qitapian.html" class="text-muted">其它片</a>
-            </li>
-                      </ul>
-                    <ul class="r6t4564674 stui-screen__list type-slide bottom-line-dot clearfix">
-            <li> <span class="ftg63463 text-muted">按地区</span> </li>
-            <li  class="active" ><a href="/s/dianying--time---------.html">全部</a></li>
-                        <li ><a href="/s/dianying-%E5%86%85%E5%9C%B0-time---------.html">内地</a></li>
-                        <li ><a href="/s/dianying-%E9%A6%99%E6%B8%AF-time---------.html">香港</a></li>
-                        <li ><a href="/s/dianying-%E5%8F%B0%E6%B9%BE-time---------.html">台湾</a></li>
-                        <li ><a href="/s/dianying-%E9%9F%A9%E5%9B%BD-time---------.html">韩国</a></li>
-                        <li ><a href="/s/dianying-%E6%B3%B0%E5%9B%BD-time---------.html">泰国</a></li>
-                        <li ><a href="/s/dianying-%E6%97%A5%E6%9C%AC-time---------.html">日本</a></li>
-                        <li ><a href="/s/dianying-%E7%BE%8E%E5%9B%BD-time---------.html">美国</a></li>
-                        <li ><a href="/s/dianying-%E8%8B%B1%E5%9B%BD-time---------.html">英国</a></li>
-                        <li ><a href="/s/dianying-%E5%8D%B0%E5%BA%A6-time---------.html">印度</a></li>
-                        <li ><a href="/s/dianying-%E5%85%B6%E5%AE%83-time---------.html">其它</a></li>
-                      </ul>
-          <ul class="dcgfgyhrtyt stui-screen__list type-slide bottom-line-dot clearfix">
-            <li> <span class="text-muted">按年份</span> </li>
-            <li  class="active"><a href="/s/dianying--time---------.html">全部</a></li>
-                        <li ><a href="/s/dianying--time---------2024.html">2024</a></li>
-                        <li ><a href="/s/dianying--time---------2023.html">2023</a></li>
-                        <li ><a href="/s/dianying--time---------2022.html">2022</a></li>
-                        <li ><a href="/s/dianying--time---------2021.html">2021</a></li>
-                        <li ><a href="/s/dianying--time---------2020.html">2020</a></li>
-                        <li ><a href="/s/dianying--time---------2019.html">2019</a></li>
-                        <li ><a href="/s/dianying--time---------2018.html">2018</a></li>
-                        <li ><a href="/s/dianying--time---------2017.html">2017</a></li>
-                        <li ><a href="/s/dianying--time---------2016.html">2016</a></li>
-                      </ul>
-        </div>
-        <!-- end 筛选 -->
-        <!-- 排序 -->
-        <div class="hfghgfetete stui-pannel_hd">
-          <div class="gfetwtwtwt stui-pannel__head active bottom-line clearfix">
-            <ul class="gdfdrytd nav nav-head">
-              <li  class="active"><a href="/s/dianying--time---------.html">按时间</a></li>
-              <li ><a href="/s/dianying--hits---------.html">按人气</a></li>
-              <li ><a href="/s/dianying--score---------.html">按评分</a></li>
-            </ul>
-          </div>
-        </div>
-        <!-- end 排序 -->
-        <div class="fgtyr6tu7t6 stui-pannel_bd">
-          <ul class="frty44 stui-vodlist clearfix">
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/114917.html" title="九叔归来3魁蛊婴" data-original="https://img.baidusogou360.com/xinimg/yugao/20220514/p2872816468.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/114917.html" title="九叔归来3魁蛊婴">九叔归来3魁蛊婴</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">葛帅,王凯垚,高兴,董晓飞,樊煦,范正军</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115338.html" title="心智游戏" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/9ee8407d73c734c517fbb73802c24ca1.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115338.html" title="心智游戏">心智游戏</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">迈克尔·帕尔,罗伯特·拉萨多,迈克尔·米尔汉</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115337.html" title="销魂天师" data-original="https://img.maimn.com/upload/vod/20220519-1/a9cc01396127582308ec774e25b7a605.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115337.html" title="销魂天师">销魂天师</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">卡珊德拉·彼得逊,菲尔·鲁本斯坦,拉里·弗拉什·詹金斯</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115336.html" title="午夜少女战争" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/5d39e2d72164363d3bbdf2b0e7c7bc8a.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115336.html" title="午夜少女战争">午夜少女战争</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">永濑廉,池田依来沙,柄本佑,渡边真起子</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115232.html" title="她喜欢的是" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220518-1/56af4cb99d59f4a202d586e4f5e15312.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115232.html" title="她喜欢的是">她喜欢的是</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">神尾枫珠,山田杏奈,前田旺志郎,三浦獠太,池田朱那,今井翼,渡边大知,三浦透子,矶村勇斗,山口纱弥加</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/43863.html" title="搜索者" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20210828-1/166f98028dcbf70e0b5ff8aaeeec0a3e.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/43863.html" title="搜索者">搜索者</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">约翰·韦恩,杰弗里·亨特,维拉·迈尔斯,沃德·邦德</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115335.html" title="神奇两女侠" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/c4be9f866bb9dcdebad1c82b6d7f7221.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115335.html" title="神奇两女侠">神奇两女侠</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">郑裕玲,叶童,王敏德,潘震伟,陈家瑛</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/87352.html" title="冬雪暖阳" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20211227-1/f5b24cf82801a7101ee029633cbeb7b4.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/87352.html" title="冬雪暖阳">冬雪暖阳</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">陶慧敏,阎青妤,吕梓航</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115334.html" title="未来预想图" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/7cbd255fbef1ceffcfa6ff54443d90c6.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115334.html" title="未来预想图">未来预想图</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">松下奈绪,竹财辉之助,原田泰造,加藤雅也,松坂庆子,柏原崇</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115333.html" title="矮子当道" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/f9a7452cdc5ff824134409c9615aef7f.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115333.html" title="矮子当道">矮子当道</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">约翰·特拉沃尔塔,吉恩·哈克曼,蕾妮·罗素,丹尼·德维托,丹尼斯·法里纳,德尔罗伊·林多,詹姆斯·甘多菲尼,强·格瑞斯,勒妮·普罗普斯,大卫·佩默,马丁·费雷罗,米盖尔·桑多瓦尔</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115332.html" title="最后的爱" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/114fd4fbe466a9bb2b6291aae271847d.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115332.html" title="最后的爱">最后的爱</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">文森特·林顿,斯塔西·马汀,瓦莱丽亚·戈利诺,朱丽亚·罗伊,Nancy,Tate,安娜·科蒂斯,海莉·卡迈克尔,Christian,Erickson,Nathan,Willcocks,安东尼萨桑·杰苏萨桑,让·克雷蒂安·赛蓓汀·勃朗峰,Lionel,Robert,沃尔夫冈·皮索尔斯,凯瑟琳·贝利,David,Tudor-Glover,Lola,Peploe,Christine,Hooper,米歇尔·克莱门特,奥利维亚·罗斯</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115331.html" title="东京塔" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/bd8d3684c69f0608935c19b12b37ea6b.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">DVD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115331.html" title="东京塔">东京塔</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">小田切让,树木希林,伊藤步,松隆子,小林薰,胜地凉,渡边美佐子,佐佐木澄江,原知佐子,平山浩行,荒川良良,寺岛进,小岛圣,光石研,仲村亨,宫崎葵,内田也哉子</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/111064.html" title="等待只为与你相遇" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20220328-1/1c8a3ee111e5c2a779ee3b4bc6a18f7e.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/111064.html" title="等待只为与你相遇">等待只为与你相遇</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">长泽雅美,山田孝之,塚本高史,国仲凉子,北川景子</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/108704.html" title="A面B面" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20220313-1/d3bc342d2f6012f375fdb19a87f8dbbe.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">DVD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/108704.html" title="A面B面">A面B面</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">张静初,王洛勇,陈晓东</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/78267.html" title="间谍之桥" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20211111-1/a27e657079152dea8a8f58f3b1c061f2.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/78267.html" title="间谍之桥">间谍之桥</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">汤姆·汉克斯,马克·里朗斯,艾米·莱安</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/48356.html" title="交响情人梦最终乐章前篇" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20210827-1/0bb3d39ba1c720ab07e00547a92b05b3.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/48356.html" title="交响情人梦最终乐章前篇">交响情人梦最终乐章前篇</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">上野树里,玉木宏,永山瑛太,水川麻美,小出惠介,温兹瑛士,贝基,山田优,谷原章介,福士诚治,吉濑美智子,伊武雅刀,竹中直人</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/48344.html" title="交响情人梦最终乐章后篇" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20210827-1/b62ce8973cdfdc19fefff86f9fcee908.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/48344.html" title="交响情人梦最终乐章后篇">交响情人梦最终乐章后篇</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">上野树里,玉木宏,永山瑛太,水川麻美,小出惠介,竹中直人,岩松了</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/48168.html" title="初恋补时" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20210827-1/33e173f3fe9f773f2a9fe711ea670b2e.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/48168.html" title="初恋补时">初恋补时</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">板垣瑞生,吉柳咲良,竹内凉真,石桥杏奈,甲本雅裕</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115330.html" title="天佑鲍比" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/14933e968be67feaae294f1246b293d1.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115330.html" title="天佑鲍比">天佑鲍比</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">西格妮·韦弗,亨利·科泽尼,瑞恩·凯利,奥斯汀·尼可斯</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115329.html" title="之后3" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/31f8c6b4f12c8abe58e13a96c5ed9213.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115329.html" title="之后3">之后3</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">约瑟芬·兰福德,赫洛·费因斯-提芬,路易丝·隆巴德</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115321.html" title="孵化" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/d3dd6303c1a2c9c37e8e57125260cb7a.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115321.html" title="孵化">孵化</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">西里·索拉林纳,索菲娅·黑基莱,亚尼·沃拉宁,雷诺·诺丁,Oiva,Ollila,Ida,M??tt?nen,萨伊亚·伦托宁,Stella,Leppikorpi,Hertta,Nieminen,Aada,Punakivi,Hertta,Karen,Jonna,Aaltonen,Miroslava,Agejeva</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115229.html" title="在黑暗中回家" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220518-1/a6ba3712fc80c91e086fb437f75efb5d.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115229.html" title="在黑暗中回家">在黑暗中回家</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">丹尼尔·吉里斯,艾瑞克·托马森,米丽亚玛,麦克道尔</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115223.html" title="他们低语" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220518-1/8294389229ff9d34a44c92815b43ee1b.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115223.html" title="他们低语">他们低语</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">悉德妮·怀特,Rocío,Muñoz,Margaux,Billard</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/58928.html" title="爱情不NG" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20210830-1/b6c8ec90520fc44f73bcc8f4240e1b29.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片高清</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/58928.html" title="爱情不NG">爱情不NG</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">信,钟欣潼,李小冉,余少群</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/64100.html" title="红河" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20210902-1/31bd69da85c693a4fabd0e72bd0ba548.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片高清</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/64100.html" title="红河">红河</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">张静初,张家辉,李丽珍,李修贤</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115325.html" title="凯特威廉姆斯第三次世界大战" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/c9d015ac5eff902db8244451bd633b2d.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115325.html" title="凯特威廉姆斯第三次世界大战">凯特威廉姆斯第三次世界大战</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">卡特·威廉姆斯</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115129.html" title="新手自杀" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20220517-1/3787605750c8fb021725febf2f3b8a21.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115129.html" title="新手自杀">新手自杀</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">Wil,Daniels,萨拉·汤科,Nate,Panning</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/113947.html" title="瞬息全宇宙" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20220502-1/8485ede6de76a8e735dc1e968be19e35.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/113947.html" title="瞬息全宇宙">瞬息全宇宙</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">杨紫琼,斯蒂芬妮·许,关继威,吴汉章,杰米·李·柯蒂斯,珍妮·斯蕾特,塔丽·梅德尔,岑勇康,比夫·威夫,苏妮特·玛尼</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/102814.html" title="人蛇大战" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20220218-1/716c574688b9e4d01f70a6e1cb33a387.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/102814.html" title="人蛇大战">人蛇大战</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">向云鹏,魏平澳,李影,欧阳莎菲,梁嘉伦</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115322.html" title="完美搭配" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/5218f7790eb21228f6ca3d2b82be092f.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115322.html" title="完美搭配">完美搭配</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">Nazneen,Contractor,Brennan,Elliott,Zarina,Rocha,Genelle,Williams,Art,Hindle,Shauna,MacDonald</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/72945.html" title="搜索者" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20211023-1/62a4afaccf1a7458afda07f3188ac64e.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/72945.html" title="搜索者">搜索者</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">宋昌义,宋英奎,李玄均,张海颂,都恩菲,金哲允,金智雄,???(1988),金英才</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115320.html" title="人人都在谈论杰米" data-original="http://img.baidusogou360.com/xinimg/upload/vod/20220519-1/f3798156160dff94bbffdd695f833e95.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115320.html" title="人人都在谈论杰米">人人都在谈论杰米</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">John,McCrea,Josie,Walker,Tamsin,Carroll</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/48298.html" title="她房间里的云" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20210827-1/ecfd10a31efac8e20b3487d03413ea72.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/48298.html" title="她房间里的云">她房间里的云</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">金晶,陈轴,刘丹</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/10809.html" title="山丘之王" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20210828-1/463891a29c1a84a149385773e921a273.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/10809.html" title="山丘之王">山丘之王</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">杰西·布拉德福特,杰罗恩·克拉比,Lisa,Eichhorn</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/115319.html" title="男孩A" data-original="/"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">正片</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/115319.html" title="男孩A">男孩A</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">安德鲁·加菲尔德,彼得·穆兰,希欧布罕·芬内朗</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                        <li class="fter464 col-md-6 col-sm-4 col-xs-3">
-<div class="OPIUYJHGasd stui-vodlist__box"> <a class="Kyuhfgg stui-vodlist__thumb lazyload" href="/n/72726.html" title="闯堂兔" data-original="https://img.baidusogou360.com/xinimg/upload/vod/20211021-1/66f598d0ef782549bd70695ff6b4a59d.jpg"> <span class="KJHGyhg play hidden-xs"></span> <span class="lkjdhayans pic-text text-right">HD</span> </a>
-  <div class="mdhrtnsg stui-vodlist__detail">
-    <h4 class="HHgsfd title text-overflow"><a href="/n/72726.html" title="闯堂兔">闯堂兔</a></h4>
-    <p class="HHgstdg text text-overflow text-muted hidden-xs">内详</p>
-  </div>
-</div>
-              <!-- 列表-->
-            </li>
-                      </ul>
-        </div>
-      </div>
-    </div>
-    <ul class="listJHGF stui-page text-center clearfix">
-  <li><a href="/s/dianying--time------1---.html">首页</a></li>
-  <li><a href="/s/dianying--time------1---.html">上一页</a></li>
-    <li class="JHGyjgfg hidden-xs active"><a href="/s/dianying--time------1---.html">1</a></li>
-    <li class="JHGyjgfg hidden-xs "><a href="/s/dianying--time------2---.html">2</a></li>
-    <li class="JHGyjgfg hidden-xs "><a href="/s/dianying--time------3---.html">3</a></li>
-    <li class="JHGyjgfg hidden-xs "><a href="/s/dianying--time------4---.html">4</a></li>
-    <li class="JHGyjgfg hidden-xs "><a href="/s/dianying--time------5---.html">5</a></li>
-    <li class="jdfhhgsgww active visible-xs"><span class="num">1/1944</span></li>
-  <li><a href="/s/dianying--time------2---.html">下一页</a></li>
-  <li><a href="/s/dianying--time------1944---.html">尾页</a></li>
-</ul>
- 
-    <!-- 翻页-->
-  </div>
-</div>
-<div class="xiYT container">
-  <div class="row">
-    <div class="HJTYbn stui-foot clearfix">
-      <div class="OPIUiuy col-pd text-center hidden-xs">渝ICP备2021014533号-1 Copyright <span class="fontArial"> </span> 2007-2032 http://www.chinalift.net Inc. All Rights Reserved. <a href="http://www.chinalift.net" target="_blank">星空影院</a>|<a href="http://www.chinalift.net/rss/baidu.xml" target="_blank">baidu.xml</a>|<a href="https://www.baidu.com/s?wd=http://www.chinalift.net" target="_blank">百度一下</a><br><br>
-        </div>
-      <p class="JKHGudg share bdsharebuttonbox text-center margin-0 hidden-sm hidden-xs"></p>
-      <p class="KLOIUyuf text-muted text-center visible-xs"><a href="http://www.chinalift.net" target="_blank">星空影院</a>渝ICP备2021014533号-1 Copyright © 2007-2032 http://www.chinalift.net <a href="http://www.chinalift.net/rss/baidu.xml" target="_blank">baidu.xml</a>|<a href="https://www.baidu.com/s?wd=http://www.chinalift.net" target="_blank">百度一下</a></p>
-    </div>
-  </div>
-</div>
-<div class="UIYnhg col-xs-1">
-<ul class="POIUNtgf stui-link__text clearfix">
-            <li><a class="baidusogou text-muted" href="/n/114917.html?ivk_sa=1024320u" title="九叔归来3魁蛊婴">九叔归来3魁蛊婴</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/110365.html?ivk_sa=1024320u" title="谎颜">谎颜</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/104776.html?ivk_sa=1024320u" title="君有云">君有云</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/89941.html?ivk_sa=1024320u" title="川尻木灵的糜烂生活">川尻木灵的糜烂生</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/115260.html?ivk_sa=1024320u" title="春情之乱">春情之乱</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/114218.html?ivk_sa=1024320u" title="亲朋密友2">亲朋密友2</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/114015.html?ivk_sa=1024320u" title="双生陌生人国语">双生陌生人国语</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/113716.html?ivk_sa=1024320u" title="天堂的旗帜下">天堂的旗帜下</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/112641.html?ivk_sa=1024320u" title="迈向未来的倒数10秒">迈向未来的倒数1</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/112110.html?ivk_sa=1024320u" title="社畜小姐想被幽灵幼女治愈。">社畜小姐想被幽灵</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/110008.html?ivk_sa=1024320u" title="派对浪客诸葛孔明">派对浪客诸葛孔明</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/114023.html?ivk_sa=1024320u" title="参与其中">参与其中</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/104051.html?ivk_sa=1024320u" title="杀人者的购物目录">杀人者的购物目录</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/111336.html?ivk_sa=1024320u" title="身为女主角">身为女主角</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/112565.html?ivk_sa=1024320u" title="吉祥寺losers">吉祥寺loser</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/112083.html?ivk_sa=1024320u" title="特搜9第五季">特搜9第五季</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/111329.html?ivk_sa=1024320u" title="绿色妈咪会">绿色妈咪会</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/92188.html?ivk_sa=1024320u" title="向你奔去的速度493km">向你奔去的速度4</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/114802.html?ivk_sa=1024320u" title="绝望写手第二季">绝望写手第二季</a></li>   					
-            <li><a class="baidusogou text-muted" href="/n/113173.html?ivk_sa=1024320u" title="空乘危机第二季">空乘危机第二季</a></li>   					
-      </ul>
-</div>
-<ul class="OPIUYngf stui-extra clearfix">
-  <li> <a class="backtop" href="javascript:scroll(0,0)" style="display: none;"><i class="icon iconfont icon-less"></i></a> </li>
-  <li class="UYTTert hidden-xs"> <a class="copylink" href="javascript:;"><i class="icon iconfont icon-share"></i></a> </li>
-  <li class="UYTTert visible-xs"> <a class="open-share" href="javascript:;"><i class="icon iconfont icon-share"></i></a> </li>
-  <li class="UYTTert hidden-xs"> <span><i class="icon iconfont icon-qrcode"></i></span>
-    <div class="sideslip">
-      <div class="col-pd">
-        <p id="qrcode"></p>
-        <p class="text-center font-12">扫码用手机访问</p>
-      </div>
-    </div>
-  </li>
-  <li> <a href="/gbook.html"><i class="UYTTGhjh icon iconfont icon-comments"></i></a> </li>
-</ul>
-<div class="hide">
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-</div>
-<script>var uUDQQoE1 = uUDQQoE1 || [];(function() {  var f_Kzac2 = window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74"]("\x73\x63\x72\x69\x70\x74");  f_Kzac2["\x73\x72\x63"] = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x68\x6d\x2e\x62\x61\x69\x64\x75\x2e\x63\x6f\x6d\x2f\x68\x6d\x2e\x6a\x73\x3f\x35\x62\x66\x62\x39\x62\x37\x33\x61\x37\x35\x64\x39\x30\x37\x66\x38\x63\x63\x32\x66\x66\x33\x35\x62\x37\x31\x32\x31\x37\x61\x63";  var _hOO3 = window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x73\x42\x79\x54\x61\x67\x4e\x61\x6d\x65"]("\x73\x63\x72\x69\x70\x74")[0];   _hOO3["\x70\x61\x72\x65\x6e\x74\x4e\x6f\x64\x65"]["\x69\x6e\x73\x65\x72\x74\x42\x65\x66\x6f\x72\x65"](f_Kzac2, _hOO3);})();</script>
-<script>var FYzoTEwRf1 = FYzoTEwRf1 || [];(function() {  var Hr2 = window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x63\x72\x65\x61\x74\x65\x45\x6c\x65\x6d\x65\x6e\x74"]("\x73\x63\x72\x69\x70\x74");  Hr2["\x73\x72\x63"] = "\x68\x74\x74\x70\x73\x3a\x2f\x2f\x68\x6d\x2e\x62\x61\x69\x64\x75\x2e\x63\x6f\x6d\x2f\x68\x6d\x2e\x6a\x73\x3f\x63\x37\x32\x32\x39\x30\x65\x36\x39\x32\x63\x66\x62\x35\x63\x36\x65\x31\x32\x37\x30\x39\x33\x62\x61\x34\x37\x36\x63\x63\x65\x37";  var ySQ3 = window["\x64\x6f\x63\x75\x6d\x65\x6e\x74"]["\x67\x65\x74\x45\x6c\x65\x6d\x65\x6e\x74\x73\x42\x79\x54\x61\x67\x4e\x61\x6d\x65"]("\x73\x63\x72\x69\x70\x74")[0];   ySQ3["\x70\x61\x72\x65\x6e\x74\x4e\x6f\x64\x65"]["\x69\x6e\x73\x65\x72\x74\x42\x65\x66\x6f\x72\x65"](Hr2, ySQ3);})();</script>
-<script type="text/javascript" src="https://unpkg.com/peerjs@1.3.2/dist/peerjs.min.js"></script>
-<script type="text/javascript">
-	// debug 代码
-	var _err, _connErr;
-	function showPeer(peer) {
-		if (!peer)
-			return;
-		console.log('id:', peer.id, 'open:', peer.open, 'disconnected:', peer.disconnected, 'destroyed:', peer.destroyed)
-	}
-	function showConns(conns) {
-		if (!conns.length)
-			return;
-		conns.forEach( (conn)=>{
-			console.log('open:', conn.open, 'remote peer id:', conn.peer, 'reliable:', conn.reliable)
-		})
-	}
-	function log(role, obj) {
-		var text = 'log: [' + role + '] ' + Object.keys(obj) + ' | ' + Object.values(obj);
-		$('#msg').append('<div>' +text+ '</div>')
-	}
-	
-	// 初始化
-	function initPeer(peerId) {
-		var peer = new Peer(peerId);
-		var signal = 0;
-		peer.on('open', (id)=>{
-			log('Peer事件', {open:'成功'}); // --------------
-			console.log('peerID是: ', id);
-			signal = 1;
-		});
-		peer.on('error', (err)=>{
-			log('Peer事件', {error:err.type, hints:err.message}); // --------------
-			_err = err;
-			if (err.type == 'unavailable-id')
-				console.log('peerID “' +peerId+ '” 分配失败【_err】');
-			if (err.type == 'peer-unavailable')
-				console.log('peer.connect “' +err.message+ '” 连接失败！【_err】')
-			console.log('peer error', err);
-			signal = -1;
-		});
+	<script type="text/javascript">
 		
-		
-		let ready = new Promise( (resolve, reject)=>{
-			setTimeout(() => {
-				if (signal==1)
-					resolve();
-				else
-					reject();
-			}, 3000);
-		});
-		return ready.then(()=>{return peer;}).catch(()=>{return null;});
-	}
-	
-	// 启动服务
-	var MAX_CONN = 30
-	var peer = null;
-	var conns = [];
-	async function launchPeer(remotePeerId) {
-		/***********************************
-			若未提供“remotePeerId”，则表示“peer（自身）”启动后，不主动向“远程peer（服务端）”请求数据【相当于，自己在p2p中的角色是“纯-服务端”】
-			若提供了“remotePeerId”，则表示“peer（自身）”启动后，需要先向“远程peer（服务端）”请求数据，得到数据后，自己也可作为“服务端”。
-		***********************************/
-		
-		for (let i=0; i<100; i++) {
-			peer = await initPeer('ccctttrrrzzz-' + i);
-			console.log('initPeer:', peer);
-			showPeer(peer);
-			
-			if (peer) {
-				break;
-			}
-			console.log('initPeer: peer 为 null', peer);
+		if (WebSocket && WebSocket.prototype.send) {
+			//alert("您的浏览器支持Websocket通信协议")
+		}else{
+			alert("您的浏览器不支持Websocket通信协议，请使用Chrome或者Firefox浏览器！")
 		}
-		if (!peer) {
-			$('#msg').append('<div>私信服务启动失败</div>');
-			return;
-		}
-			
-		$('#msg').append('<div>私信服务已就绪' +peer.id+ '</div>');
-		
-		log('启动Peer', {peer:peer.id}); // --------------
-		console.log('~~~~~~~~~~', peer)
-		// Receiver 监听连接【p2p中的服务端逻辑】
-		peer.on('connection', function(conn) {
-			log( 'Receiver', {event:'peer.on connection', remoteId:conn.peer.id} ); // --------------
-			
-			if (conns.length >= MAX_CONN) {
-				conn.close()
-				return
-			}
-			conns.push(conn);
-			conn.on('data', function(data){
-				// Will print 'hi!'
-				console.log(data);
-				
-				var newMsgNode = $('<div></div>');
-				newMsgNode.text(data);
-				//$('#msg').append(newMsgNode);
-				log( 'Receiver', {event:'conn.on data', data:data} ); // --------------
-				
-				// 返回数据【response】
-				conn.send('请求已收到!【' +data+ '】');
-			});
-			conn.on('error', function(err){
-				log( 'Receiver', {event:'conn.on error', type:err.type, hints:err.message} ); // --------------
-			});
-		});
 		
 		
-		if (!remotePeerId)
-			return
-		// Connect initiator，主动向remotePeer请求数据
-		var n = 20;
-		var conn = peer.connect(remotePeerId);
-		conn.on('open', function(){
-			log( 'Initiator', {event:'peer.connect open 成功'} ); // --------------
-			conn.send('hi-' + n);
-			n -= 1;
-		});
-		conn.on('error', function(err){
-			log( 'Initiator', {event:'peer.connect error', type:err.type, hints:err.message} ); // --------------
-			_connErr = err;
-			console.log('peer.connect 连接失败！【_connErr】')
-		});
-		conn.on('data', function(data){
-			log( 'Initiator', {event:'peer.connect data', data:data} ); // --------------
-			// Will print 'hi!'
-			console.log(data);
-			
-			var newMsgNode = $('<div></div>');
-			newMsgNode.text(data);
-			//$('#msg').append(newMsgNode);
-			
-			if (n <= 0)
+		var vConsole = new window.VConsole();
+		// debug 代码
+		var _err, _connErr, _tmp;
+		function showPeer(peer) {
+			if (!peer)
 				return;
-			// 发送请求【request】
-			setTimeout( function(){
-				conn.send('hi-' + n);
-				n -= 1;
-			}, 5000);
-		});
-	}
-	
-	// 与broker断开连接，并切断所有p2p连接
-	function stopPeer(peer) {
-		peer.destroyed();
-		peer = null;
-		conns = [];
-	}
-	
-	
-	
-	/////////////
-	// launchPeer(); launchPeer('ccctttrrrzzz-0');
-	
-	
-	setInterval(()=>{
-		// 管理connection状态【connection是已经建立好的P2P连接】
-			// 释放已失效的connection资源，并从connection列表中清除
-		let len = conns.length
-		for (let i=0; i<len; i++) { // 此处不能直接写“conns.length”，经测，for每次循环都会与conns.length的动态值进行比较
-			let conn = conns.shift()
-			if (conn.open)
-				conns.push(conn)
-			else
-				conn.close() // 连接已失效，调用close，释放资源
+			console.log('id:', peer.id, 'open:', peer.open, 'disconnected:', peer.disconnected, 'destroyed:', peer.destroyed)
+		}
+		function showConns(conns) {
+			if (!conns.length)
+				return;
+			conns.forEach( (conn)=>{
+				console.log('open:', conn.open, 'remote peer id:', conn.peer, 'reliable:', conn.reliable)
+			})
+		}
+		function log(role, obj) {
+			var text = 'log: [' + role + '] ';
+			for (var k in obj) {
+				text += k + ': ' + obj[k] + ', ';
+			}
+			$('#msg').append('<div>' +text+ '</div>')
 		}
 		
-		// 管理peer状态【peer对象用于 与broker通信】
-		if (!peer)
-			return
-		if (peer.destroyed)
-			return
-		if (peer.disconnected) {
-			try {
-				peer.reconnect() // 若（使用原ID）重新请求broker连接，触发异常，则表示该ID已被其他peer占用 或者 当前peer已destory
-			} catch (err) {
-				peer.destory() // 若 当前peer的ID被其他peer占用，则主动销毁当前peer，主动断开所有已建立的p2p连接（虽然这些连接暂时还是可用的）
-			}
+		// 初始化
+		function initPeer(peerId) {
+			
+			var peer = new Peer(peerId);
+			var signal = 0;
+			peer.on('open', (id)=>{
+				log('Peer', {'peer-event':'open （与broker连接成功）'}); // --------------
+				console.log('peerID是: ', id);
+				signal = 1;
+			});
+			peer.on('error', (err)=>{
+				log('Peer', {'peer-event':'error', type:err.type, hints:err.message}); // --------------
+				_err = err;
+				if (err.type == 'unavailable-id')
+					console.log('peerID “' +peerId+ '” 分配失败【_err】');
+				if (err.type == 'peer-unavailable')
+					console.log('peer.connect “' +err.message+ '” 连接失败！【_err】')
+				console.log('peer-event: error', err);
+				signal = -1;
+			});
+			
+			
+			let ready = new Promise( (resolve, reject)=>{
+				setTimeout(() => {
+					if (signal==1)
+						resolve();
+					else
+						reject();
+				}, 3000);
+			});
+			return ready.then(()=>{return peer;}).catch(()=>{return null;});
 		}
-	}, 3000);
-	/////////////
-</script>
-
-<script type="text/javascript">
 	
-</script>
-
+		
+		
+		// 启动服务
+		var MAX_CONN = 30
+		var peer = null;
+		var conns = [];
+		function launchPeer(remotePeerId) {
+			
+			/***********************************
+				若未提供“remotePeerId”，则表示“peer（自身）”启动后，不主动向“远程peer（服务端）”请求数据【相当于，自己在p2p中的角色是“纯-服务端”】
+				若提供了“remotePeerId”，则表示“peer（自身）”启动后，需要先向“远程peer（服务端）”请求数据，得到数据后，自己也可作为“服务端”。
+			***********************************/
+			
+			log('启动Peer', {remotePeer:remotePeerId}); // --------------
+			
+			var i=0;
+			function initPeerCallback(ret) {
+				peer = ret;
+				console.log('initPeer:', peer);
+				showPeer(peer);
+				
+				i += 1;
+				if (peer || i>100)
+					return;
+				console.log('initPeer: peer 为 null', peer);
+				initPeer('ccctttrrrzzz-' + i).then( initPeerCallback );
+			}
+			initPeer('ccctttrrrzzz-' + i).then( initPeerCallback );
+			
+			
+			var timer = setInterval( ()=>{
+				if (!peer) {
+					if (i>100) {
+						$('#msg').append('<div>私信服务启动失败</div>');
+						clearInterval(timer);
+					}
+					return;
+				}
+				
+				clearInterval(timer);
+				
+				$('#msg').append('<div>私信服务已就绪' +peer.id+ '</div>');
+				
+				log('启动Peer', {peer:peer.id}); // --------------
+				console.log('~~~~~~~~~~', peer)
+				// Receiver 监听连接【p2p中的服务端逻辑】
+				peer.on('connection', function(conn) {
+					log( 'Receiver', {'peer-event':'connection', remoteId:conn.peer} ); // --------------
+					
+					
+					if (conns.length >= MAX_CONN) {
+						conn.close()
+						return
+					}
+					console.log('666666666666666666', conn.peer)
+					conns.push(conn);
+					conn.on('data', function(data){
+						// Will print 'hi!'
+						console.log(data);
+						
+						var newMsgNode = $('<div></div>');
+						newMsgNode.text(data);
+						//$('#msg').append(newMsgNode);
+						log( 'Receiver', {'conn-event':'data', data:data} ); // --------------
+						
+						// 返回数据【response】
+						conn.send('请求已收到!【' +data+ '】');
+					});
+					conn.on('error', function(err){
+						log( 'Receiver', {'conn-event':'error', type:err.type, hints:err.message} ); // --------------
+					});
+				});
+				
+				
+				if (!remotePeerId)
+					return
+				// Connect initiator，主动向remotePeer请求数据
+				var n = 20;
+				var connI = peer.connect(remotePeerId);
+				_tmp = connI;
+				/* *******************************************
+					偶然发现：“peer.connect”向远端peer发起连接时，远端peer与broker处于断开状态，本次connection将不会触发任何消息，
+					应增加超时处理逻辑，否则，无法确认后续逻辑是否已执行
+				******************************************* */
+				connI.on('open', function(){
+					log( 'Initiator', {'conn-event':'open 成功'} ); // --------------
+					connI.send('hi-' + n);
+					n -= 1;
+				});
+				connI.on('error', function(err){
+					log( 'Initiator', {'conn-event':'error', type:err.type, hints:err.message} ); // --------------
+					_connErr = err;
+					console.log('peer.connect 连接失败！【_connErr】')
+				});
+				connI.on('data', function(data){
+					log( 'Initiator', {'conn-event':'data', data:data} ); // --------------
+					// Will print 'hi!'
+					console.log(data);
+					
+					var newMsgNode = $('<div></div>');
+					newMsgNode.text(data);
+					//$('#msg').append(newMsgNode);
+					
+					if (n <= 0)
+						return;
+					// 发送请求【request】
+					setTimeout( function(){
+						connI.send('hi-' + n);
+						n -= 1;
+					}, 5000);
+				});
+			}, 2000);
+		}
+		
+		
+		// 与broker断开连接，并切断所有p2p连接
+		function stopPeer(peer) {
+			peer.destroyed();
+			peer = null;
+			conns = [];
+		}
+		
+		
+		
+		/////////////
+		// launchPeer(); launchPeer('ccctttrrrzzz-0');
+		
+		var cccs = [];
+		setInterval(()=>{
+			// 管理connection状态【connection是已经建立好的P2P连接】
+				// 释放已失效的connection资源，并从connection列表中清除
+			let len = conns.length
+			for (let i=0; i<len; i++) { // 此处不能直接写“conns.length”，经测，for每次循环都会与conns.length的动态值进行比较
+				let conn = conns.shift()
+				if (conn.open)
+					conns.push(conn)
+				else {
+					cccs.push(conn);
+					//conn.close() // 连接已失效，调用close，释放资源
+				}
+			}
+			
+			// 管理peer状态【peer对象用于 与broker通信】
+			if (!peer)
+				return
+			if (peer.destroyed)
+				return
+			if (peer.disconnected) {
+				try {
+					peer.reconnect() // 若（使用原ID）重新请求broker连接，触发异常，则表示该ID已被其他peer占用 或者 当前peer已destory
+				} catch (err) {
+					peer.destory() // 若 当前peer的ID被其他peer占用，则主动销毁当前peer，主动断开所有已建立的p2p连接（虽然这些连接暂时还是可用的）
+				}
+			}
+		}, 3000);
+		/////////////
+	</script>
 </body>
 </html>
